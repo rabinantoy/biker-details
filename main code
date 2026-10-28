@@ -1,0 +1,136 @@
+
+import java.util.Scanner;
+
+class Bike {
+    String bikeName;
+    String model;
+    int year;
+    double price;
+
+    Bike(String bikeName, String model, int year, double price) {
+        this.bikeName = bikeName;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
+
+    void displayBike() {
+        System.out.println("Bike Name: " + bikeName);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Price: Rs. " + price);
+    }
+}
+
+class Buyer {
+    String name;
+    String phone;
+    String address;
+
+    Buyer(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    void displayBuyer() {
+        System.out.println("\n--- Buyer Details ---");
+        System.out.println("Name: " + name);
+        System.out.println("Phone: " + phone);
+        System.out.println("Address: " + address);
+    }
+}
+
+class Seller {
+    String name;
+    String phone;
+    String address;
+
+    Seller(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    void displaySeller() {
+        System.out.println("\n--- Seller Details ---");
+        System.out.println("Name: " + name);
+        System.out.println("Phone: " + phone);
+        System.out.println("Address: " + address);
+    }
+}
+
+public class AnnaiConsulting {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("================================");
+        System.out.println("     ANNAI CONSULTING");
+        System.out.println(" Bike Buyer and Seller Details");
+        System.out.println("================================");
+
+        System.out.println("\nEnter Seller Details");
+        System.out.print("Seller Name: ");
+        String sellerName = sc.nextLine();
+
+        System.out.print("Seller Phone: ");
+        String sellerPhone = sc.nextLine();
+
+        System.out.print("Seller Address: ");
+        String sellerAddress = sc.nextLine();
+
+        System.out.println("\nEnter Buyer Details");
+        System.out.print("Buyer Name: ");
+        String buyerName = sc.nextLine();
+
+        System.out.print("Buyer Phone: ");
+        String buyerPhone = sc.nextLine();
+
+        System.out.print("Buyer Address: ");
+        String buyerAddress = sc.nextLine();
+
+        System.out.println("\nEnter Bike Details");
+        System.out.print("Bike Name: ");
+        String bikeName = sc.nextLine();
+
+        System.out.print("Bike Model: ");
+        String model = sc.nextLine();
+
+        System.out.print("Manufacturing Year: ");
+        int year = sc.nextInt();
+
+        System.out.print("Bike Price: ");
+        double price = sc.nextDouble();
+
+        Seller seller = new Seller(
+            sellerName, sellerPhone, sellerAddress
+        );
+
+        Buyer buyer = new Buyer(
+            buyerName, buyerPhone, buyerAddress
+        );
+
+        Bike bike = new Bike(bikeName, model, year, price);
+
+        System.out.println("\n================================");
+        System.out.println("       BIKE SALE RECORD");
+        System.out.println("================================");
+
+        seller.displaySeller();
+        buyer.displayBuyer();
+
+        System.out.println("\n--- Bike Details ---");
+        bike.displayBike();
+
+        System.out.println("\n--- Transaction Summary ---");
+        System.out.println("Consultancy: Annai Consulting");
+        System.out.println("Buyer: " + buyer.name);
+        System.out.println("Seller: " + seller.name);
+        System.out.println("Bike: " + bike.bikeName);
+        System.out.println("Sale Amount: Rs. " + bike.price);
+
+        System.out.println("\nRecord displayed successfully!");
+
+        sc.close();
+    }
+}
